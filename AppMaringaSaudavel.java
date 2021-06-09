@@ -1,7 +1,13 @@
 package AEP2021;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class AppMaringaSaudavel {
     public static void main(String[] args) {
+
+        // Date date = new Date();
+        //SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
         
         Exercicio novoExercicio = new Exercicio("Treino de fortalecimento para coluna", "fortalecimento",
                                                 "10 minutos","todas as idades"); 
@@ -18,11 +24,15 @@ public class AppMaringaSaudavel {
         CalendarioDeExercicios novoDia2 = new CalendarioDeExercicios("terça-feira");
         novoDia2.addExercicio(novoExercicio2);
 
+        Usuario novoUsuario = new Usuario("Ana", "Nunes", "10/08/1995","ana@gmail.com","******");
+
         
-        System.out.println("\n------- TESTES ------- \n");
-        
-        //System.out.println(novoExercicio);
+        System.out.println("\n------- TESTES -------");        
+        System.out.println(novoExercicio);
         System.out.println(novoDia);
         System.out.println(novoDia2);
+
+        System.out.println("\n--------- USUARIOS------");
+        System.out.println(novoUsuario);
     }
 }

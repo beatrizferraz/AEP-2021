@@ -1,10 +1,15 @@
 package AEP2021;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Exercicio {
     private String nome;
     private String tipo;
     private String tempoDeDuracao;
     private String faixaEtaria;
+    private Exercicio pesquisa;
+    private List<Exercicio> exercicio = new ArrayList<>(); 
 
     public Exercicio(String nome, String tipo, String tempoDeDuracao, String faixaEtaria) {
         setNome(nome);
