@@ -6,15 +6,14 @@ import java.util.List;
 public class Exercicio {
     private String nome;
     private String tipo;
-    private String tempoDeDuracao;
+    private int tempoEmMinutos;
     private String faixaEtaria;
-    private Exercicio pesquisa;
-    private List<Exercicio> exercicio = new ArrayList<>(); 
+    
 
-    public Exercicio(String nome, String tipo, String tempoDeDuracao, String faixaEtaria) {
+    public Exercicio(String nome, String tipo, int tempoEmMinutos, String faixaEtaria) {
         setNome(nome);
         setTipo(tipo);
-        setTempoDeDuracao(tempoDeDuracao);
+        setTempoEmMinutos(tempoEmMinutos);
         setFaixaEtaria(faixaEtaria);
     }
 
@@ -26,8 +25,8 @@ public class Exercicio {
         return tipo;
     }
 
-    public String getTempoDeDuracao() {
-        return tempoDeDuracao;
+    public int getTempoEmMinutos() {
+        return tempoEmMinutos;
     }
 
     public String getFaixaEtaria() {
@@ -48,11 +47,8 @@ public class Exercicio {
         this.tipo = tipo;
     }
 
-    public void setTempoDeDuracao(String tempoDeDuracao) {
-        if(tempoDeDuracao == null || tempoDeDuracao.trim().length() == 0) {
-            throw new RuntimeException("Todo exercício deve informar tempo de duração.");
-        }   
-        this.tempoDeDuracao = tempoDeDuracao;
+    public void setTempoEmMinutos(int tempoEmMinutos) {  
+        this.tempoEmMinutos = tempoEmMinutos;
     }
 
     public void setFaixaEtaria(String faixaEtaria) {
@@ -66,7 +62,7 @@ public class Exercicio {
     public String toString() {
         return "\nExercício: " + nome + "\n" 
                 + "Tipo: " + tipo + "\n"
-                + "Duração: " + tempoDeDuracao + "\n"
+                + "Duração: " + tempoEmMinutos + " minutos \n"
                 + "Faixa etária: " + faixaEtaria;
     }
 }

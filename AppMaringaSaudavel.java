@@ -10,12 +10,12 @@ public class AppMaringaSaudavel {
         //SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy");
         
         Exercicio novoExercicio = new Exercicio("Treino de fortalecimento para coluna", "fortalecimento",
-                                                "10 minutos","todas as idades"); 
+                                                10,"todas as idades"); 
 
-        Exercicio novoExercicio2 = new Exercicio("HIIT para iniciantes", "alta intensidade", "7 minutos",
+        Exercicio novoExercicio2 = new Exercicio("HIIT para iniciantes", "alta intensidade", 7,
                                                   "18-45 anos");
 
-        Exercicio novoExercicio3 = new Exercicio("Cardio de baixo impacto", "aeróbico", "20 minutos",
+        Exercicio novoExercicio3 = new Exercicio("Cardio de baixo impacto", "aeróbico", 20,
                                                   "18-55 anos");
         
         CalendarioDeExercicios novoDia = new CalendarioDeExercicios("segunda-feira");
@@ -29,10 +29,11 @@ public class AppMaringaSaudavel {
         
         System.out.println("\n------- TESTES -------");        
         System.out.println(novoExercicio);
+        System.out.println("\n----- CALENDÁRIO -----"); 
         System.out.println(novoDia);
         System.out.println(novoDia2);
 
-        System.out.println("\n--------- USUARIOS------");
+        System.out.println("\n------- USUÁRIOS------");
         System.out.println(novoUsuario);
     }
 }

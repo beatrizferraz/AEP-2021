@@ -44,35 +44,30 @@ public class Usuario {
         return senha;
     }
 
+    public void validaStringSemNumeros(String str) {
+        str = str.toUpperCase();
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+           char ch = charArray[i];
+           if (!(ch >= 'A' && ch <= 'Z')) {
+              throw new RuntimeException("Nome e sobrenome não podem conter números.");
+           }
+        } 
+    }
+
     public void setNome(String nome) {
         if(nome == null || nome.trim().length() < 2) {
             throw new RuntimeException("Nome deve ter ao menos 2 caracteres.");
         } 
-    
-        nome = nome.toUpperCase();
-        char[] charArray = nome.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
-           char ch = charArray[i];
-           if (!(ch >= 'A' && ch <= 'Z')) {
-              throw new RuntimeException("Nome não pode conter números");
-           }
-        } 
+        validaStringSemNumeros(nome);
         this.nome = nome;
     }
 
     public void setSobrenome(String sobrenome) {
         if(sobrenome == null || sobrenome.trim().length() < 2) {
             throw new RuntimeException("Sobrenome deve ter ao menos 2 caracteres.");
-        }  
-        
-        sobrenome = sobrenome.toUpperCase();
-        char[] charArray = sobrenome.toCharArray();
-        for (int i = 0; i < charArray.length; i++) {
-           char ch = charArray[i];
-           if (!(ch >= 'A' && ch <= 'Z')) {
-              throw new RuntimeException("Sobrenome não pode conter números");
-           }
-        } 
+        }         
+        validaStringSemNumeros(sobrenome);
         this.sobrenome = sobrenome;
     }
 
