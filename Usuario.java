@@ -1,22 +1,21 @@
-package AEP2021;
+package AEP_PERS;
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import javax.persistence.Entity;
 
-public class Usuario {
+@Entity
+public class Usuario extends BaseEntity {
     private String nome;
     private String sobrenome;
     private String dataDeNascimento;
     private String email;
     private String senha;
-
-    // Pattern pattern = Pattern.compile("^.+@.+\\..+$");
-    // Matcher matcher = pattern.matcher(email);
+    
+    public Usuario() {
+        super();
+    }
 
     public Usuario(String nome, String sobrenome, String dataDeNascimento, String email, String senha) {
+        this();
         setNome(nome);
         setSobrenome(sobrenome);
         setDataDeNascimento(dataDeNascimento);
@@ -72,20 +71,13 @@ public class Usuario {
     }
 
     public void setDataDeNascimento(String dataDeNascimento) {
-        // LocalDate currentDate = LocalDate.now();
-        // if ((dataDeNascimento != null) && (currentDate != null)) {
-        //      //Period.between(dataDeNascimento, currentDate).getYears();
-
-        //      if(Period.between(dataDeNascimento, currentDate).getYears() > 121) {
-        //         throw new RuntimeException("Data de nascimento inválida.");
-        //      }
-        // }  
-        
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email) {    
+        //Pattern pattern = Pattern.compile("^.+@.+\\..+$");
+        //Matcher matcher = pattern.matcher(email);
+        this.email = email;    
     }
 
     public void setSenha(String senha) {

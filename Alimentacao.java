@@ -1,10 +1,18 @@
-package AEP2021;
+package AEP_PERS;
 
-public class Alimentacao {
+import javax.persistence.Entity;
+
+@Entity
+public class Alimentacao extends BaseEntity{
     private String nomeDoTopico;
     private String conteudo;
 
+    public Alimentacao() {
+        super();
+    }
+    
     public Alimentacao(String nomeDoTopico, String conteudo) {
+        this();
         setNomeDoTopico(nomeDoTopico);
         setConteudo(conteudo);
     }
@@ -16,8 +24,7 @@ public class Alimentacao {
     public String getConteudo() {
         return conteudo;
     }
-
-    
+   
     public void setNomeDoTopico(String nomeDoTopico) {
         if(nomeDoTopico == null) {
             throw new RuntimeException("Tópico deve ser informado.");
@@ -35,6 +42,6 @@ public class Alimentacao {
     @Override
     public String toString() {
         return "Tópico: " + nomeDoTopico + "\n"
-                + "Conteudo: " + conteudo;
+                + "Conteúdo: " + conteudo;
     }
 }

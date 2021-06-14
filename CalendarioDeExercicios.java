@@ -1,15 +1,29 @@
-package AEP2021;
+package AEP_PERS;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CalendarioDeExercicios {
-    private String diaDaSemana;
-    private List<Exercicio> exercicio = new ArrayList<>();
-    private Usuario usuario;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+
+@Entity
+public class CalendarioDeExercicios extends BaseEntity {
+    private String diaDaSemana;   
+    //private Usuario usuario;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Exercicio> exercicios = new HashSet<>();
+
+    public CalendarioDeExercicios() {
+        super();
+    }
     
     public CalendarioDeExercicios(String diaDaSemana) {
+        this();
         setDiaDaSemana(diaDaSemana);
     }
  
@@ -17,25 +31,25 @@ public class CalendarioDeExercicios {
         return diaDaSemana;
     }
 
-    public List<Exercicio> getExercicio() {
-        return exercicio;
+    public Set<Exercicio> getExercicio() {
+        return exercicios;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+    // public Usuario getUsuario() {
+    //     return usuario;
+    // }
  
     public void setDiaDaSemana(String diaDaSemana) {
         this.diaDaSemana = diaDaSemana;
     }
  
     public void addExercicio(Exercicio novoExercicio) {
-         this.exercicio.add(novoExercicio);
+         this.exercicios.add(novoExercicio);
     }
 
     public int calculaTempoDeExercicioDiario() { 
         int tempoDeExercicio = 0;
-        for(Exercicio e : exercicio) {
+        for(Exercicio e : exercicios) {
             tempoDeExercicio = tempoDeExercicio + e.getTempoEmMinutos(); 
         }
         return tempoDeExercicio;
@@ -58,7 +72,7 @@ public class CalendarioDeExercicios {
      public String toString() {
     
          String stringExercicio = "\nEXERCÍCIOS: ";
-         for (Exercicio e : this.exercicio) {
+         for (Exercicio e : this.exercicios) {
              stringExercicio += e.toString() + "; ";
          }
 
@@ -67,4 +81,4 @@ public class CalendarioDeExercicios {
                  + "\nTempo total de exercício diário: " + calculaTempoDeExercicioDiario() + " minutos."
                  + "\nFeedback: " + feedbackTempoDeExercicio();
      }
- } 
+}

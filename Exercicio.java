@@ -1,16 +1,20 @@
-package AEP2021;
+package AEP_PERS;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
 
-public class Exercicio {
+@Entity
+public class Exercicio extends BaseEntity {
     private String nome;
     private String tipo;
     private int tempoEmMinutos;
     private String faixaEtaria;
     
+    public Exercicio() {
+        super();
+    }
 
     public Exercicio(String nome, String tipo, int tempoEmMinutos, String faixaEtaria) {
+        this();
         setNome(nome);
         setTipo(tipo);
         setTempoEmMinutos(tempoEmMinutos);
